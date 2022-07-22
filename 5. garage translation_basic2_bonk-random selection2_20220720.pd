@@ -1,0 +1,155 @@
+#N canvas 238 16 1664 865 12;
+#X obj 40 46 adc~ 1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array sample1 66350 float 2;
+#X coords 0 1 66350 -1 200 140 1 0 0;
+#X restore 1415 84 graph;
+#X obj 1049 117 soundfiler;
+#X floatatom 1049 149 8 0 0 0 - - - 0;
+#X obj 42 750 *~ 0.7;
+#X obj 41 262 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 1015 51 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array sample2 116176 float 2;
+#X coords 0 1 116176 -1 200 140 1 0 0;
+#X restore 1417 245 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array sample3 706610 float 2;
+#X coords 0 1 706610 -1 200 140 1 0 0;
+#X restore 1418 408 graph;
+#X obj 1047 276 soundfiler;
+#X floatatom 1047 308 8 0 0 0 - - - 0;
+#X obj 1029 440 soundfiler;
+#X floatatom 1029 472 8 0 0 0 - - - 0;
+#X msg 1049 86 read -resize glass_necklace_short_hit.wav sample1;
+#X msg 1047 245 read -resize nut_drop_roll_medium.wav sample2;
+#X msg 1029 409 read -resize tape_recorder_long_rhythmic.wav sample3
+;
+#X obj 43 399 pack f f f;
+#X obj 1051 184 s endsample1;
+#X obj 1049 345 s endsample2;
+#X obj 1028 505 s endsample3;
+#X msg 43 650 \$1 \, \$2 \$3;
+#X text 118 650 start \, end duration;
+#X floatatom 42 364 5 0 0 0 - - - 0;
+#X obj 136 393 expr abs($f1 / 44.1);
+#X floatatom 293 427 9 0 0 0 - - - 0;
+#X obj 60 460 print;
+#X text 285 394 calculate duration (CD quality);
+#X msg 60 431 \$1 \$2 \$3;
+#X obj 40 227 bonk~;
+#X msg 53 197 minvel \$1;
+#X obj 56 145 hsl 128 15 0 127 0 0 empty empty DETECTION\\\ LEVEL -2
+-8 1 10 #ffe3c6 #000000 #510c72 0 1;
+#X floatatom 64 169 5 0 0 0 - - - 0;
+#X text 1043 48 ← CLICK TO LOAD ALL SOUND FILES;
+#X text 55 483 check values see console, f 12;
+#X obj 42 793 dac~ 1;
+#X text 95 794 audio output (channel 1);
+#X text 104 45 mic input (channel 1);
+#X obj 304 109 random 3;
+#X floatatom 303 156 5 0 0 0 - - - 0;
+#X obj 43 684 line~;
+#X obj 1014 20 loadbang;
+#X obj 52 70 loadbang;
+#X obj 90 289 makefilename sample%d;
+#X obj 514 28 r endsample1;
+#X obj 514 60 v dur1;
+#X obj 614 27 r endsample2;
+#X obj 614 59 v dur2;
+#X obj 712 27 r endsample3;
+#X obj 712 59 v dur3;
+#X floatatom 616 87 9 0 0 0 - - - 0;
+#X floatatom 513 88 9 0 0 0 - - - 0;
+#X floatatom 713 89 9 0 0 0 - - - 0;
+#X obj 90 321 symbol file;
+#X obj 304 132 + 1;
+#X obj 319 234 select 1 2 3;
+#X obj 43 716 tabread~;
+#X msg 93 683 set \$1;
+#X obj 316 265 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 354 265 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 414 267 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 265 290 expr dur1;
+#X obj 338 289 expr dur2;
+#X obj 415 289 expr dur3;
+#X floatatom 349 333 9 0 0 0 - - - 0;
+#X msg 52 102 31;
+#X obj 114 353 print;
+#X obj 272 195 t f f;
+#X text 807 608 2022-July-20: RANDOMISATION WORKING \, HOWEVER THE
+MAKEFILENAME IS EXECUTING BEFORE THE DURATION IS CALCULATED \, I THINK
+BECAUSE THE DURATION CALCULATION HAS MORE TO DO (BECAUSE A TRIGGER
+OBJECT ISN'T FIXING IT) WHILE THE FILENAME PRETTY MUCH SAILS THROUGH
+TO TABREAD~. GOING TO PULL IT APART AND TRY TO MAKE MAKEFILENAME COME
+THROUGH THE SAME PIPE AS THE DURATION SOMEHOW BECAUSE I DON'T WANT
+TO INSERT AN ARBITRARY DELAY TO THE CALCUATION ON THE GROUNDS THAT
+THAT FEELS LIKE IT COULD GO WRONG AND ALSO WILL INTRODUCE UNNECESSARY
+LATENCY.;
+#X connect 0 0 28 0;
+#X connect 2 0 3 0;
+#X connect 3 0 17 0;
+#X connect 4 0 34 0;
+#X connect 5 0 22 0;
+#X connect 5 0 37 0;
+#X connect 6 0 13 0;
+#X connect 6 0 14 0;
+#X connect 6 0 15 0;
+#X connect 6 0 48 0;
+#X connect 6 0 46 0;
+#X connect 6 0 44 0;
+#X connect 9 0 10 0;
+#X connect 10 0 18 0;
+#X connect 11 0 12 0;
+#X connect 12 0 19 0;
+#X connect 13 0 2 0;
+#X connect 14 0 9 0;
+#X connect 15 0 11 0;
+#X connect 16 0 20 0;
+#X connect 16 0 27 0;
+#X connect 20 0 39 0;
+#X connect 22 0 16 0;
+#X connect 23 0 16 2;
+#X connect 23 0 24 0;
+#X connect 27 0 25 0;
+#X connect 28 0 5 0;
+#X connect 29 0 28 0;
+#X connect 30 0 29 0;
+#X connect 30 0 31 0;
+#X connect 37 0 53 0;
+#X connect 38 0 66 0;
+#X connect 39 0 55 0;
+#X connect 40 0 6 0;
+#X connect 41 0 64 0;
+#X connect 42 0 52 1;
+#X connect 42 0 52 0;
+#X connect 43 0 44 0;
+#X connect 44 0 50 0;
+#X connect 45 0 46 0;
+#X connect 46 0 49 0;
+#X connect 47 0 48 0;
+#X connect 48 0 51 0;
+#X connect 52 0 56 0;
+#X connect 52 0 65 0;
+#X connect 53 0 38 0;
+#X connect 54 0 57 0;
+#X connect 54 1 58 0;
+#X connect 54 2 59 0;
+#X connect 55 0 4 0;
+#X connect 56 0 55 0;
+#X connect 57 0 60 0;
+#X connect 58 0 61 0;
+#X connect 59 0 62 0;
+#X connect 60 0 63 0;
+#X connect 61 0 63 0;
+#X connect 62 0 63 0;
+#X connect 63 0 23 0;
+#X connect 63 0 16 1;
+#X connect 64 0 30 0;
+#X connect 66 0 42 0;
+#X connect 66 1 54 0;
