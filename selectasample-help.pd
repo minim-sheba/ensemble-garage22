@@ -1,0 +1,18 @@
+#N canvas 128 128 840 767 12;
+#X text 31 91 PURPOSE Trigger random selection of one of three samples
+defined in the parent patch \, returning the sample number and duration
+, f 94;
+#X text 32 211 OUTPUT;
+#X text 34 234 v selectedsample = (f) the number of the randomly selected
+sample (1 \, 2 or 3), f 94;
+#X text 34 275 left outlet = (f) the number of samples in the selected
+sample, f 94;
+#X text 34 315 right outlet = (f) the duration in ms of the selected
+sample (CD quality assumed - this number is calculated by dividing
+the number of samples by 44.1), f 94;
+#X text 29 17 SELECTASAMPLE - created for piece for Ensemble Garage
+by Caitlin Rowley and Josh Spear \, 2022 ---------------------------------------------------------------------------------------------
+coding by Caitlin Rowley http://caitlinrowley.com ---------------------------------------------------------------------------------------------
+, f 94;
+#X text 30 145 INPUT;
+#X text 32 167 Bang;

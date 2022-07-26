@@ -1,11 +1,11 @@
-#N canvas -8 0 958 956 12;
+#N canvas -8 0 1099 956 12;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array sample1 66350 float 2;
 #X coords 0 1 66350 -1 200 140 1 0 0;
 #X restore 1415 84 graph;
 #X obj 1049 117 soundfiler;
 #X floatatom 1049 149 8 0 0 0 - - - 0;
-#X obj 41 262 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X obj 44 377 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
 #X obj 1015 51 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
@@ -25,27 +25,28 @@
 #X msg 1047 245 read -resize nut_drop_roll_medium.wav sample2;
 #X msg 1029 409 read -resize tape_recorder_long_rhythmic.wav sample3
 ;
-#X obj 43 399 pack f f f;
+#X obj 45 470 pack f f f;
 #X obj 1051 184 s endsample1;
 #X obj 1049 345 s endsample2;
 #X obj 1028 505 s endsample3;
-#X msg 43 539 \$1 \, \$2 \$3;
-#X text 118 539 start \, end duration;
-#X floatatom 42 364 5 0 0 0 - - - 0;
-#X floatatom 266 310 9 0 0 0 - - - 0;
-#X obj 60 460 print;
-#X msg 60 431 \$1 \$2 \$3;
+#X msg 46 607 \$1 \, \$2 \$3;
+#X text 121 607 start \, end duration;
+#X floatatom 44 435 5 0 0 0 - - - 0;
+#X floatatom 166 377 9 0 0 3 duration\ in\ ms - selected_duration 0
+;
+#X obj 62 531 print;
+#X msg 62 502 \$1 \$2 \$3;
 #X obj 40 227 bonk~;
 #X msg 53 197 minvel \$1;
 #X obj 56 145 hsl 128 15 0 127 0 0 empty empty DETECTION\\\ LEVEL -2
 -8 1 10 #ffe3c6 #000000 #510c72 0 1;
 #X floatatom 64 169 5 0 0 0 - - - 0;
 #X text 1043 48 ← CLICK TO LOAD ALL SOUND FILES;
-#X text 55 483 check values see console, f 12;
-#X obj 43 684 line~;
+#X text 57 554 check values see console, f 12;
+#X obj 46 752 line~;
 #X obj 1014 20 loadbang;
 #X obj 52 70 loadbang;
-#X obj 170 605 makefilename sample%d;
+#X obj 173 673 makefilename sample%d;
 #X obj 709 142 r endsample1;
 #X obj 709 174 v dur1;
 #X obj 809 141 r endsample2;
@@ -55,37 +56,25 @@
 #X floatatom 811 201 9 0 0 0 - - - 0;
 #X floatatom 708 202 9 0 0 0 - - - 0;
 #X floatatom 908 203 9 0 0 0 - - - 0;
-#X obj 170 637 symbol file;
-#X obj 42 743 tabread~;
-#X msg 93 683 set \$1;
-#X obj 99 569 expr selectedsample;
-#X floatatom 116 605 5 0 0 0 - - - 0;
-#X text 247 569 retrieve current sample number to make sample name
+#X obj 173 705 symbol file;
+#X obj 45 811 tabread~;
+#X msg 96 751 set \$1;
+#X obj 102 637 expr selectedsample;
+#X floatatom 119 673 5 0 0 0 - - - 0;
+#X text 250 637 retrieve current sample number to make sample name
 ;
-#X obj 41 820 dac~ 1 2;
-#X text 110 820 audio output (channel 1 & 2 - check Bela pin chart
+#X obj 44 888 dac~ 1 2;
+#X text 113 888 audio output (channel 1 & 2 - check Bela pin chart
 for correct numbers - I'm guessing these ATM);
-#X obj 194 674 print;
+#X obj 197 742 print;
 #X text 118 62 THIS LOADBANG MAY NEED TO CHANGE TO BE TRIGGERED VIA
 SENSOR, f 32;
-#X obj 41 778 *~ 3;
+#X obj 44 846 *~ 3;
 #X text 104 45 mic input (channels 1 & 2);
 #X obj 40 46 adc~ 1 2;
 #X msg 52 102 64;
-#X text 827 585 2022-July-20: CONNECTING LOADBANG TO THE RANDOM GETS
-AROUND THE NO SOUND ON FIRST DETECTION PROBLEM - BUT THE RANDOM NOW
-SHOWS THE NEXT SAMPLE IN LINE \, IT'S NOT PUSHING IT THROUGH STRAIGHT
-AWAY \, SO THERE'S SOME SORT OF ORDERING ISSUE HAPPENING THAT I NEED
-TO ADDRESS HERE. BUT IT'S WORKING ON LOAD AT THE MOMENT \, SO IT SEEMS
-LIKE A GOOD IDEA TO TEST IT WITH THE CONTACT MIC AND ON THE BELA. 2022-July-22:
-LOADING SOUNDS TRIGGER THE FIRST SOUND ON BELA REGARDLESS UNLESS THE
-SENSITIVITY IS SET VERY HIGH. ADDING TRILL SENSOR TO CONTROL DETECTION
-LEVEL SHOULD CORRECT THIS \, I THINK - NEED TO TEST. ALSO SHOULD BE
-ABLE TO PLACE STICKY DOTS IN THE APPROPRIATE PLACES FOR THE CIRCUMSTANCES
-\, THEORETICALLY AT LEAST ALLOWING FOR ADJUSTING SENSITIVITY LEVELS
-DURING THE PERFORMANCE?;
 #X obj 145 176 print \$1;
-#X floatatom 178 309 8 0 0 0 - - - 0;
+#X floatatom 78 376 8 0 0 3 end - - 0;
 #N canvas 160 0 1620 956 readtouchbar 0;
 #X obj 197 16 inlet;
 #X obj 74 407 outlet;
@@ -117,12 +106,31 @@ f 24;
 #X connect 14 0 12 0;
 #X connect 14 0 1 0;
 #X restore 358 104 pd readtouchbar;
-#X obj 345 178 selectasample;
-#X obj 178 276 selectasample;
-#X text 178 327 end;
-#X text 266 329 duration in ms;
-#X floatatom 352 217 5 0 0 0 - - - 0;
-#X floatatom 421 215 5 0 0 0 - - - 0;
+#X obj 400 168 selectasample;
+#X obj 78 343 selectasample;
+#X floatatom 407 207 7 0 0 0 - - - 0;
+#X floatatom 476 205 8 0 0 0 - - - 0;
+#X text 827 585 2022-July-26: I THINK THE ORDER ISSUE IS NOW SOLVED
+BY MOVING THE BANG FROM BEING DIRECTLY FROM THE BONK~ TO AFTER THE
+SELECTASAMPLE. STILL PRINTING TO CONSOLE OUT OF ORDER \, BUT IT DOESN'T
+SEEM TO BE PRE-EMPTING THE NEXT SELECTION ANY MORE \, AND (ON THE LAPTOP)
+IT IS NO LONGER EITHER TRIGGERING A SAMPLE ON LOAD \, OR NOT TRIGGERING
+A SAMPLE ON FIRST ATTACK.;
+#X text 834 693 HAPPY WITH THESE FIRST ABSTRACTIONS - SEEM TO BE WORKING
+OK \, ALTHOUGH I SUSPECT SELECTASAMPLE WILL NEED TO BE MORE COMPLEX
+ONCE WE HAVE MULTIPLE MICS? OR MAYBE NOT.;
+#X obj 40 313 spigot;
+#X obj 79 284 tgl 15 0 empty empty delay\ bonk 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 100 258 1;
+#X msg 165 265 0;
+#X obj 102 227 delay 1000 1 msec;
+#X obj 231 193 r selected_duration;
+#X text 836 752 NEED TO TEST THE ORDER ISSUE ON BELA. ALSO THE TOUCHBAR
+ABSTRACTION \, ALTHOUGH THAT SEEMS PRETTY SELF-CONTAINED BUT JUST NEED
+TO CONFIRM IT'S STILL WORKING. ALSO NEED TO CHECK THE SPIGOT IS WORKING
+SO THAT EACH FILE PLAYS ALL THE WAY THROUGH AND CAN'T BE INTERRUPTED
+;
 #X connect 1 0 2 0;
 #X connect 2 0 15 0;
 #X connect 3 0 20 0;
@@ -132,7 +140,7 @@ f 24;
 #X connect 4 0 39 0;
 #X connect 4 0 37 0;
 #X connect 4 0 35 0;
-#X connect 4 0 60 0;
+#X connect 4 0 59 0;
 #X connect 7 0 8 0;
 #X connect 8 0 16 0;
 #X connect 9 0 10 0;
@@ -146,16 +154,15 @@ f 24;
 #X connect 18 0 30 0;
 #X connect 20 0 14 0;
 #X connect 23 0 22 0;
-#X connect 24 0 3 0;
-#X connect 24 0 62 0;
+#X connect 24 0 66 0;
 #X connect 25 0 24 0;
 #X connect 26 0 25 0;
 #X connect 26 0 27 0;
-#X connect 27 0 58 0;
+#X connect 27 0 57 0;
 #X connect 30 0 44 0;
 #X connect 31 0 4 0;
 #X connect 32 0 56 0;
-#X connect 32 0 61 0;
+#X connect 32 0 60 0;
 #X connect 33 0 43 0;
 #X connect 34 0 35 0;
 #X connect 35 0 41 0;
@@ -172,10 +179,20 @@ f 24;
 #X connect 53 0 49 0;
 #X connect 55 0 24 0;
 #X connect 56 0 26 0;
-#X connect 60 0 26 0;
-#X connect 61 0 65 0;
-#X connect 61 1 66 0;
+#X connect 59 0 26 0;
+#X connect 60 0 62 0;
+#X connect 60 1 63 0;
+#X connect 61 0 14 1;
+#X connect 61 0 58 0;
+#X connect 61 0 3 0;
+#X connect 61 1 14 2;
+#X connect 61 1 21 0;
 #X connect 62 0 14 1;
-#X connect 62 0 59 0;
-#X connect 62 1 14 2;
-#X connect 62 1 21 0;
+#X connect 63 0 14 2;
+#X connect 66 0 61 0;
+#X connect 67 0 66 1;
+#X connect 68 0 67 0;
+#X connect 69 0 67 0;
+#X connect 70 0 68 0;
+#X connect 71 0 70 0;
+#X connect 71 0 69 0;
