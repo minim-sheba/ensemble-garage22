@@ -123,7 +123,7 @@ f 24;
 #X obj 199 809 tabread4~;
 #X msg 97 316 0;
 #X obj 19 54 env~ 200 500;
-#N canvas 32 32 970 499 scaler 1;
+#N canvas 32 32 970 499 scaler 0;
 #X obj 30 26 inlet;
 #X obj 30 98 -;
 #X obj 30 224 /;
