@@ -496,6 +496,7 @@ PLAY A SOUND. INVESTIGATE.;
 #X connect 5 0 6 0;
 #X connect 6 0 4 0;
 #X connect 9 0 16 0;
+#X connect 9 1 15 0;
 #X connect 11 0 15 1;
 #X connect 11 0 16 1;
 #X connect 15 0 5 0;
