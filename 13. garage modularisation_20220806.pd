@@ -484,6 +484,24 @@ AND JUST CUSTOMISE THE VARIABLES LIKE I HAVE FOR PROCESSANDSELECT.
 #X text 622 639 ALSO: I SEEM TO ONCE AGAIN HAVE THAT PROBLEM WHERE
 AN INITIAL SAMPLE ISN'T BEING SELECTED AND THE FIRST TRIGGER THEN DOESN'T
 PLAY A SOUND. INVESTIGATE.;
+#N canvas 96 96 399 318 raiselevel 0;
+#X obj 38 130 *~;
+#X floatatom 97 93 5 0 0 0 - - - 0;
+#X obj 97 30 loadbang;
+#X msg 97 62 3;
+#X obj 37 169 outlet~;
+#X obj 39 91 inlet~;
+#X text 140 62 multiply signal by 3;
+#X text 33 232 this subpatch compensates for volume differences between
+L and R channels passing through the 'Maker Hart' adapter (2 x mono
+1/4" female to 1 x stereo minijack male). Can be removed if using different
+equipment., f 45;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 5 0 0 0;
+#X restore 157 133 pd raiselevel;
 #X connect 0 0 3 0;
 #X connect 0 0 15 2;
 #X connect 0 0 13 0;
@@ -496,11 +514,12 @@ PLAY A SOUND. INVESTIGATE.;
 #X connect 5 0 6 0;
 #X connect 6 0 4 0;
 #X connect 9 0 16 0;
-#X connect 9 1 15 0;
+#X connect 9 1 20 0;
 #X connect 11 0 15 1;
 #X connect 11 0 16 1;
 #X connect 15 0 5 0;
 #X connect 15 1 5 0;
 #X connect 16 0 5 0;
 #X connect 16 1 5 0;
+#X connect 20 0 15 0;
 #X coords 0 47800 50 47750 0 0 0;
