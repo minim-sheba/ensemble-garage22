@@ -1,7 +1,7 @@
-#N canvas 241 321 1034 668 12;
+#N canvas 1 226 1034 668 12;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array sample1 16973 float 2;
-#X coords 0 1 16973 -1 200 140 1 0 0;
+#X array sample1 16973 float 4;
+#X coords 0 1 16972 -1 200 140 1 0 0;
 #X restore 731 115 graph;
 #X obj 365 148 soundfiler;
 #X floatatom 365 180 8 0 0 0 - - - 0;

@@ -32,13 +32,6 @@
 #X msg 750 27 read -resize chain2.wav ch2sample1;
 #X msg 748 186 read -resize chain3.wav ch2sample2;
 #X msg 747 350 read -resize chain4.wav ch2sample3;
-#X text 600 586 6-Aug-2022: MIGHT HAVE BEEN TOO CLEVER WITH THIS -
-GETTING ERRORS SAYING ARRAYS ARE MULTIPLY DEFINED \, AND NOTHING EXCEPT
-SAMPLE2 ACTUALLY PLAYS (ALTHOUGH AT LEAST THERE'S SILENCE NOW WHEN
-THE SELECTED SAMPLE ISN'T REGISTERED. DURATIONS ALSO DON'T SEEM TO
-BE LOADING \, WHICH MIGHT HAVE SUGGESTED IT CAN'T FIND THE FILES \,
-BUT THEY'RE DEF. IN THE FOLDER. HMM. WILL SLEEP ON THIS. IT'S IMPROVING.
-;
 #X obj 35 20 inlet;
 #X text 82 19 loadbang;
 #X connect 1 0 2 0;
@@ -56,10 +49,10 @@ BUT THEY'RE DEF. IN THE FOLDER. HMM. WILL SLEEP ON THIS. IT'S IMPROVING.
 #X connect 21 0 1 0;
 #X connect 22 0 5 0;
 #X connect 23 0 7 0;
-#X connect 25 0 21 0;
-#X connect 25 0 22 0;
-#X connect 25 0 23 0;
-#X connect 25 0 18 0;
-#X connect 25 0 19 0;
-#X connect 25 0 20 0;
+#X connect 24 0 21 0;
+#X connect 24 0 22 0;
+#X connect 24 0 23 0;
+#X connect 24 0 18 0;
+#X connect 24 0 19 0;
+#X connect 24 0 20 0;
 #X coords 0 0 1 1 85 60 0;
