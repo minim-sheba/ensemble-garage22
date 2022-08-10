@@ -464,24 +464,6 @@ transposition while sound is playing;
 #X connect 39 0 40 0;
 #X coords 0 -1 1 1 150 60 1 600 550;
 #X restore 21 239 pd processandselect_ch1;
-#X text 614 375 7 Aug 2022: NEED TO TEST THIS ON THE BELA NOW - INDIVIDUAL
-CHANNELS ARE BEING PROCESSED CORRECTLY AND WITHOUT ERRORS (I BELIEVE)
-WHEN ACCESSED FROM CHANNEL 1 (BECAUSE ON THE LAPTOP) - NOW NEED TO
-TEST WITH MULTIPLE MICS TO SEE IF IT'S PROCESSING MULTIPLE STREAMS
-OF AUDIO CORRECTLY.;
-#X text 618 467 ONE THING TO NOTE IS THAT I HAVEN'T DIFFERENTIATED
-BETWEEN ROUNDS OF RANDOM NUMBER GENERATION - THE NUMBER GENERATES AND
-JUST USES THE SAME ABSTRACTION WITH THE SAME VARIABLE - WILL THIS LEAD
-TO ALL CHANNELS USING THE SAME SEQUENCE \, OR WILL IT JUST GENERATE
-A DIFFERENT RANDOM NUMBER EACH TIME IT'S ACCESSED? OR IF I TAP SNAKE
-\, DOLL \, TEAPOT \, WILL I - SAY - ALWAYS GET 2-3-1 BECAUSE IT'S PROCESSING
-THE DON'T-DUPLICATE-SOUNDS PART ACROSS ALL THE SIGNALS BEING RECEIVED?
-SUSPECT IT MIGHT. MIGHT NEED TO MAKE THIS A SUBPATH INSTEAD OF AN ABSTRACTION
-AND JUST CUSTOMISE THE VARIABLES LIKE I HAVE FOR PROCESSANDSELECT.
-;
-#X text 622 639 ALSO: I SEEM TO ONCE AGAIN HAVE THAT PROBLEM WHERE
-AN INITIAL SAMPLE ISN'T BEING SELECTED AND THE FIRST TRIGGER THEN DOESN'T
-PLAY A SOUND. INVESTIGATE.;
 #N canvas 96 96 399 318 raiselevel 0;
 #X obj 38 130 *~;
 #X floatatom 97 93 5 0 0 0 - - - 0;
@@ -924,37 +906,42 @@ equipment., f 45;
 #X restore 397 133 pd raiselevel;
 #X obj 643 116 ctlin 10;
 #X obj 764 258 print level;
-#X obj 567 122 metro 500;
+#X obj 656 14 metro 500;
 #X floatatom 725 131 5 0 0 0 - - - 0;
+#X obj 650 415 ctlout 10;
+#X msg 856 428 64;
 #X connect 0 0 2 0;
 #X connect 0 0 9 2;
 #X connect 0 0 7 0;
 #X connect 0 0 8 0;
 #X connect 0 0 10 2;
-#X connect 0 0 21 0;
-#X connect 0 0 22 0;
-#X connect 0 0 20 2;
-#X connect 0 0 19 2;
+#X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 17 2;
+#X connect 0 0 16 2;
+#X connect 0 0 23 0;
 #X connect 0 0 26 0;
 #X connect 1 0 0 0;
 #X connect 3 0 10 0;
-#X connect 3 1 14 0;
-#X connect 3 2 19 0;
-#X connect 3 3 23 0;
+#X connect 3 1 11 0;
+#X connect 3 2 16 0;
+#X connect 3 3 20 0;
 #X connect 5 0 9 1;
 #X connect 5 0 10 1;
-#X connect 5 0 19 1;
-#X connect 5 0 20 1;
-#X connect 5 0 25 0;
-#X connect 9 0 15 0;
-#X connect 10 0 15 0;
-#X connect 14 0 9 0;
-#X connect 15 0 17 0;
-#X connect 15 0 17 1;
-#X connect 19 0 15 0;
-#X connect 20 0 15 0;
-#X connect 23 0 20 0;
-#X connect 24 0 27 0;
-#X connect 26 0 27 0;
-#X connect 27 0 5 0;
+#X connect 5 0 16 1;
+#X connect 5 0 17 1;
+#X connect 5 0 22 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X connect 11 0 9 0;
+#X connect 12 0 14 0;
+#X connect 12 0 14 1;
+#X connect 16 0 12 0;
+#X connect 17 0 12 0;
+#X connect 20 0 17 0;
+#X connect 21 0 24 0;
+#X connect 23 0 24 0;
+#X connect 24 0 5 0;
+#X connect 26 0 25 0;
+#X connect 26 0 24 0;
 #X coords 0 47800 50 47750 0 0 0;
