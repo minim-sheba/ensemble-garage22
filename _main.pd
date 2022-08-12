@@ -1,4 +1,4 @@
-#N canvas 550 19 1308 956 12;
+#N canvas 288 184 1308 956 12;
 #X obj 512 47 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
 #X obj 512 16 loadbang;
@@ -41,7 +41,7 @@ f 24;
 #X restore 512 71 pd readtouchbar;
 #X obj 195 9 adc~ 1 2 3 4;
 #X text 290 9 mic input (chnls 1 \, 2 \, 3 & 4), f 16;
-#N canvas 90 236 450 300 detectlevel 1;
+#N canvas 90 236 450 300 detectlevel 0;
 #X msg 39 219 minvel \$1;
 #X obj 110 119 hsl 128 15 0 127 0 0 empty empty DETECTION\\\ LEVEL
 -2 -8 1 10 #ffe3c6 #000000 #510c72 0 1;
@@ -685,7 +685,7 @@ transposition while sound is playing;
 #X connect 40 0 11 0;
 #X coords 0 -1 1 1 150 60 1 600 550;
 #X restore 364 239 pd processandselect_ch3;
-#N canvas 573 125 972 855 processandselect_ch4 0;
+#N canvas 689 93 972 855 processandselect_ch4 1;
 #X obj 195 225 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
 #X obj 195 318 pack f f f;
