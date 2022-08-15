@@ -1,0 +1,18 @@
+#N canvas 192 192 1548 300 12;
+#X obj 29 19 notein;
+#X floatatom 29 61 5 0 0 0 - - - 0;
+#X obj 35 183 print 47;
+#X obj 214 139 print other note;
+#X obj 29 96 route 47 39;
+#X text 114 93 if button 4 or 12 on Beatstep - 4 is initial state \,
+12 is alternate (so can reset);
+#X obj 151 188 print 39;
+#X obj 29 214 outlet;
+#X obj 144 215 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 0 7 0;
+#X connect 4 1 6 0;
+#X connect 4 1 8 0;
+#X connect 4 2 3 0;
