@@ -1,0 +1,34 @@
+#N canvas 28 84 728 352 12;
+#X obj 17 16 inlet;
+#X text 64 16 receive loadbang;
+#X obj 17 73 metro 500;
+#X floatatom 17 147 5 0 0 0 - - - 0;
+#X msg 127 94 64;
+#X obj 25 98 ctlin \$1;
+#X obj 127 128 ctlout \$1;
+#X obj 107 259 print channel \$2 level;
+#X text 354 199 argument 2: audio channel to control;
+#X text 354 219 e.g. midi_levels 10 1;
+#X text 354 178 argument 1: MIDI control channel to receive;
+#X obj 16 292 outlet;
+#X obj 79 202 hsl 128 15 0 127 0 0 empty empty DETECTION\\\ LEVEL -2
+-8 1 10 #ffe3c6 #000000 #510c72 0 1;
+#X floatatom 215 199 5 0 0 2 - - - 0;
+#X msg 16 235 minvel \$1;
+#X obj 229 14 inlet;
+#X text 276 13 manually set level value (allows simultaneous setting
+of same value across all channels), f 27;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 12 0;
+#X connect 4 0 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 12 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 7 0;
+#X connect 14 0 11 0;
+#X connect 15 0 6 0;
+#X connect 15 0 3 0;
+#X coords 0 -1 1 1 253 43 2 15 184;
