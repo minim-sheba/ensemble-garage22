@@ -1,5 +1,5 @@
 #N canvas 549 28 1308 868 12;
-#X obj 512 -41 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#X obj 512 -21 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
 #X obj 512 -72 loadbang;
 #X obj 195 -79 adc~ 1 2 3 4;
@@ -205,7 +205,7 @@ transposition while sound is playing;
 #X connect 37 0 21 0;
 #X connect 38 0 39 0;
 #X connect 39 0 40 0;
-#X coords 0 -1 1 1 150 60 1 600 550;
+#X coords 0 855 1 854 150 60 0;
 #X restore 192 361 pd processandselect_ch2;
 #N canvas 573 125 972 855 processandselect_ch1 0;
 #X obj 195 225 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
@@ -404,7 +404,7 @@ transposition while sound is playing;
 #X connect 37 0 11 0;
 #X connect 38 0 39 0;
 #X connect 39 0 40 0;
-#X coords 0 -1 1 1 150 60 1 600 550;
+#X coords 0 855 1 854 150 60 0;
 #X restore 21 361 pd processandselect_ch1;
 #N canvas 96 96 399 318 raiselevel 0;
 #X obj 38 130 *~;
@@ -625,7 +625,7 @@ transposition while sound is playing;
 #X connect 39 0 13 0;
 #X connect 39 0 40 0;
 #X connect 40 0 11 0;
-#X coords 0 -1 1 1 150 60 1 600 550;
+#X coords 0 855 1 854 150 60 0;
 #X restore 364 361 pd processandselect_ch3;
 #N canvas 573 125 972 855 processandselect_ch4 0;
 #X obj 195 225 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
@@ -824,7 +824,7 @@ transposition while sound is playing;
 #X connect 38 0 13 0;
 #X connect 38 0 39 0;
 #X connect 39 0 11 0;
-#X coords 0 -1 1 1 150 60 1 600 550;
+#X coords 0 855 1 854 150 60 0;
 #X restore 535 361 pd processandselect_ch4;
 #X obj 1076 636 garage_samples_ch3;
 #X obj 1076 661 garage_samples_ch4;
@@ -846,38 +846,30 @@ equipment., f 45;
 #X connect 3 0 1 0;
 #X connect 5 0 0 0;
 #X restore 338 28 pd raiselevel;
-#X obj 541 -41 s startmeup;
+#X obj 541 -21 s startmeup;
 #X obj 967 558 r startmeup;
 #X obj 967 588 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
 #X obj 725 -72 r startmeup;
 #X obj 725 -42 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
-#X obj 725 -8 midi_levels 10 1;
-#X obj 725 62 midi_levels 74 2;
-#X obj 725 132 midi_levels 71 3;
-#X obj 725 202 midi_levels 76 4;
-#X obj 737 -1 cnv 15 40 30 empty empty 1 20 12 1 24 #910b6e #ffffff
-0;
-#X obj 737 69 cnv 15 40 30 empty empty 2 20 12 1 24 #910b6e #ffffff
-0;
-#X obj 737 139 cnv 15 40 30 empty empty 3 20 12 1 24 #910b6e #ffffff
-0;
-#X obj 737 209 cnv 15 40 30 empty empty 4 20 12 1 24 #910b6e #ffffff
-0;
+#X obj 747 -8 midi_levels 10 1;
+#X obj 747 22 midi_levels 74 2;
+#X obj 747 52 midi_levels 71 3;
+#X obj 747 82 midi_levels 76 4;
 #X obj 1032 -71 notein;
 #X floatatom 1032 -42 5 0 0 0 - - - 0;
-#X obj 1032 -13 route 31;
 #X text 1095 -19 if button 16 on Beatstep \, set all levels to 0;
 #X obj 1032 18 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
 #X msg 1032 43 0;
+#X obj 1032 -13 route 43;
 #X connect 0 0 7 2;
 #X connect 0 0 8 2;
 #X connect 0 0 15 2;
 #X connect 0 0 14 2;
+#X connect 0 0 19 0;
 #X connect 1 0 0 0;
-#X connect 1 0 19 0;
 #X connect 2 0 8 0;
 #X connect 2 1 9 0;
 #X connect 2 2 14 0;
@@ -904,12 +896,12 @@ equipment., f 45;
 #X connect 25 0 7 1;
 #X connect 26 0 14 1;
 #X connect 27 0 15 1;
-#X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 34 0 36 0;
-#X connect 36 0 37 0;
-#X connect 37 0 24 1;
-#X connect 37 0 25 1;
-#X connect 37 0 26 1;
-#X connect 37 0 27 1;
+#X connect 28 0 29 0;
+#X connect 29 0 33 0;
+#X connect 31 0 32 0;
+#X connect 31 0 24 1;
+#X connect 31 0 25 1;
+#X connect 31 0 26 1;
+#X connect 31 0 27 1;
+#X connect 33 0 31 0;
 #X coords 0 43400 50 43350 0 0 0;
