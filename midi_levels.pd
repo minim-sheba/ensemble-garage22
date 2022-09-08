@@ -19,6 +19,7 @@
 of same value across all channels), f 27;
 #X msg 172 94 0;
 #X obj 127 128 ctlout \$1;
+#X obj 216 238 ctlout \$1;
 #X connect 0 0 2 0;
 #X connect 0 0 4 0;
 #X connect 2 0 3 0;
@@ -29,6 +30,7 @@ of same value across all channels), f 27;
 #X connect 11 0 12 0;
 #X connect 11 0 13 0;
 #X connect 12 0 6 0;
+#X connect 12 0 18 0;
 #X connect 13 0 10 0;
 #X connect 14 0 16 0;
 #X connect 16 0 3 0;
