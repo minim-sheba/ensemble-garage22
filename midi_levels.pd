@@ -18,8 +18,10 @@
 #X text 276 13 manually set level value (allows simultaneous setting
 of same value across all channels), f 27;
 #X msg 172 94 0;
-#X obj 127 128 ctlout \$1;
-#X obj 216 238 ctlout \$1;
+#X obj 127 128 ctlout 10;
+#X obj 216 238 ctlout 10;
+#X obj 208 55 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X connect 0 0 2 0;
 #X connect 0 0 4 0;
 #X connect 2 0 3 0;
@@ -32,7 +34,8 @@ of same value across all channels), f 27;
 #X connect 12 0 6 0;
 #X connect 12 0 18 0;
 #X connect 13 0 10 0;
-#X connect 14 0 16 0;
-#X connect 16 0 3 0;
+#X connect 14 0 19 0;
 #X connect 16 0 17 0;
+#X connect 16 0 3 0;
+#X connect 19 0 16 0;
 #X coords 0 352 1 351 253 43 0;
