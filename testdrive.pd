@@ -1,0 +1,5 @@
+#N canvas 738 122 664 300 12;
+#X obj 69 30 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 68 79 selectasample_flexi 1;
+#X connect 0 0 1 0;
