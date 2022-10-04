@@ -16,7 +16,7 @@
 #X obj 101 533 outlet;
 #X text 155 534 duration in ms;
 #X obj 49 421 outlet;
-#X obj 29 51 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X obj 29 45 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
 #X obj 19 456 print fullduration;
 #X obj 125 508 print calculatedduration;
@@ -34,7 +34,7 @@
 #X obj 349 253 makefilename ch\$1dur3;
 #X obj 745 14 cnv 15 400 120 empty empty SYNTAX 12 15 1 14 #c6ffc7
 #404040 0;
-#X obj 29 80 random 3;
+#X obj 29 72 random 3;
 #X text 757 67 inlet: bang triggered from bonk~;
 #X text 757 107 outlet 2: duration in ms;
 #X text 757 87 outlet 1: number of samples in the selected sample;
@@ -43,6 +43,7 @@
 #X text 524 13 loadbang;
 #X text 79 15 start process (triggered from bonk~/loadbang);
 #X obj 481 73 makefilename selectedsample_ch\$1;
+#X obj 105 73 midi_switchbank;
 #X connect 0 0 11 0;
 #X connect 0 0 16 0;
 #X connect 1 0 3 0;
@@ -73,3 +74,4 @@
 #X connect 34 0 19 0;
 #X connect 37 0 17 1;
 #X connect 37 0 18 0;
+#X connect 38 0 2 1;
