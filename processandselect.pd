@@ -4,7 +4,7 @@
 #X obj 190 379 pack f f f;
 #X msg 190 516 \$1 \, \$2 \$3;
 #X floatatom 190 344 5 0 0 0 - - - 0;
-#X floatatom 327 287 9 0 0 3 duration\ in\ ms - \$0-selected_duration
+#X floatatom 350 287 9 0 0 3 duration\ in\ ms - \$0-selected_duration
 0;
 #X obj 207 440 print;
 #X msg 207 411 \$1 \$2 \$3;
@@ -24,7 +24,7 @@
 #X msg 315 113 0;
 #X obj 252 75 delay 1000 1 msec;
 #X floatatom 12 227 5 0 0 3 transpose - transpose 0;
-#N canvas 791 399 716 500 transposefromvelocity 0;
+#N canvas 791 399 716 500 transposefromvelocity 1;
 #X obj 18 17 inlet~;
 #X floatatom 19 120 5 0 0 0 - - - 0;
 #X obj 18 377 spigot;
@@ -32,7 +32,7 @@
 #000000 0 1;
 #X msg 135 320 0;
 #X obj 19 54 env~ 200 500;
-#N canvas 548 216 970 499 scaler 0;
+#N canvas 1087 180 970 499 scaler 0;
 #X obj 30 26 inlet;
 #X obj 30 98 -;
 #X obj 30 224 /;
@@ -59,7 +59,7 @@
 #X obj 212 175 f \$4;
 #X obj 167 166 f \$3;
 #X obj 122 114 f \$2;
-#X text 26 414 abstraction by erash from this thread: https://forum.pdpatchrepo.info/topic/6813/creating-scale-or-range/3
+#X text 30 418 abstraction by erash from this thread: https://forum.pdpatchrepo.info/topic/6813/creating-scale-or-range/3
 , f 71;
 #X text 395 46 1 number input;
 #X text 395 67 2 old low value;
@@ -104,7 +104,6 @@
 #X msg 74 173 80;
 #X msg 121 170 0;
 #X floatatom 18 298 5 0 0 0 - - - 0;
-#X obj 7 154 moses 64;
 #X msg 157 202 4;
 #X obj 157 86 loadbang;
 #X obj 100 262 inlet;
@@ -116,9 +115,16 @@
 transposition while sound is playing;
 #X text 258 422 outlet sends transpose value to transpose float box
 (sends to pitchshift abstraction);
+#X obj 547 164 moses 64;
+#X text 540 125 original value for the moses at left, f 19;
+#X text 260 154 moses: send velocity over 64;
+#X obj 7 154 moses 50;
+#X text 263 189 added 64 as initial lower value to scaler \, changed
+moses to 50;
+#X msg 45 203 50;
 #X connect 0 0 5 0;
-#X connect 1 0 11 0;
-#X connect 2 0 16 0;
+#X connect 1 0 23 0;
+#X connect 2 0 15 0;
 #X connect 3 0 2 1;
 #X connect 4 0 3 0;
 #X connect 5 0 1 0;
@@ -127,13 +133,15 @@ transposition while sound is playing;
 #X connect 8 0 6 2;
 #X connect 9 0 6 3;
 #X connect 10 0 2 0;
-#X connect 11 1 6 0;
-#X connect 12 0 6 4;
-#X connect 13 0 8 0;
-#X connect 13 0 9 0;
-#X connect 13 0 12 0;
-#X connect 14 0 3 0;
-#X connect 15 0 4 0;
+#X connect 11 0 6 4;
+#X connect 12 0 8 0;
+#X connect 12 0 9 0;
+#X connect 12 0 11 0;
+#X connect 12 0 25 0;
+#X connect 13 0 3 0;
+#X connect 14 0 4 0;
+#X connect 23 1 6 0;
+#X connect 25 0 6 1;
 #X restore 12 191 pd transposefromvelocity;
 #X obj 550 8 inlet;
 #X text 594 8 loadbang;
@@ -156,7 +164,7 @@ once on start), f 66;
 #X text 757 127 outlet 1: signal to play (playback of sample file)
 , f 66;
 #X obj 381 41 r \$0-selected_duration;
-#X text 399 284 s \$0-selected_duration;
+#X text 422 284 s \$0-selected_duration;
 #X text 265 516 start \, end duration ($$ from pack);
 #X obj 282 670 makefilename ch\$1sample%d;
 #X symbolatom 255 605 14 0 0 0 - - - 0;
@@ -176,11 +184,9 @@ once on start), f 66;
 #X connect 2 0 9 0;
 #X connect 2 0 47 0;
 #X connect 3 0 1 0;
-#X connect 6 0 5 0;
 #X connect 7 0 16 0;
 #X connect 9 0 30 0;
 #X connect 10 0 11 0;
-#X connect 10 0 12 0;
 #X connect 10 0 29 0;
 #X connect 11 0 30 0;
 #X connect 14 0 1 1;
