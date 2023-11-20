@@ -23,13 +23,13 @@
 #X msg 250 106 1;
 #X msg 315 113 0;
 #X obj 252 75 delay 1000 1 msec;
-#N canvas 280 445 716 500 transposefromvelocity 1;
+#N canvas 280 445 1143 500 transposefromvelocity 1;
 #X obj 18 17 inlet~;
 #X floatatom 19 120 5 0 0 0 - - - 0;
 #X obj 18 377 spigot;
-#X obj 74 348 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X obj 204 348 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X msg 135 320 0;
+#X msg 250 319 0;
 #X obj 19 54 env~ 200 500;
 #N canvas 1087 180 970 499 scaler 0;
 #X obj 30 26 inlet;
@@ -104,28 +104,27 @@
 #X msg 121 170 0;
 #X floatatom 18 298 5 0 0 0 - - - 0;
 #X msg 157 202 4;
-#X obj 157 86 loadbang;
-#X obj 100 262 inlet;
-#X obj 135 290 inlet;
-#X text 250 24 inlet 1: mic signal;
-#X text 249 262 inlet 2: float value (1) from delay;
-#X text 258 422 outlet sends transpose value to transpose float box
-(sends to pitchshift abstraction);
-#X obj 547 164 moses 64;
-#X text 540 125 original value for the moses at left, f 19;
-#X text 260 154 moses: send velocity over 64;
+#X obj 137 116 loadbang;
+#X obj 204 18 inlet;
+#X obj 250 18 inlet;
+#X text 420 24 inlet 1: mic signal;
+#X text 419 45 inlet 2: float value (1) from delay;
+#X obj 949 166 moses 64;
+#X text 942 127 original value for the moses at left, f 19;
 #X obj 7 154 moses 50;
-#X text 263 189 added 64 as initial lower value to scaler \, changed
+#X text 433 189 added 64 as initial lower value to scaler \, changed
 moses to 50;
 #X msg 45 203 50;
-#X text 250 292 inlet 3: spigot triggers 0 message when audio signal
+#X text 420 69 inlet 3: spigot triggers 0 message when audio signal
 is flowing \, to prevent changing transposition while sound is playing
 ;
 #X floatatom 18 409 5 0 0 0 - - - 0;
 #X obj 18 443 s transpose;
+#X text 430 154 moses: send velocity over given threshold;
+#X text 107 445 sends to pitchshift abstraction;
 #X connect 0 0 5 0;
-#X connect 1 0 21 0;
-#X connect 2 0 25 0;
+#X connect 1 0 19 0;
+#X connect 2 0 23 0;
 #X connect 3 0 2 1;
 #X connect 4 0 3 0;
 #X connect 5 0 1 0;
@@ -138,12 +137,12 @@ is flowing \, to prevent changing transposition while sound is playing
 #X connect 12 0 8 0;
 #X connect 12 0 9 0;
 #X connect 12 0 11 0;
-#X connect 12 0 23 0;
+#X connect 12 0 21 0;
 #X connect 13 0 3 0;
 #X connect 14 0 4 0;
-#X connect 21 1 6 0;
-#X connect 23 0 6 1;
-#X connect 25 0 26 0;
+#X connect 19 1 6 0;
+#X connect 21 0 6 1;
+#X connect 23 0 24 0;
 #X restore 12 191 pd transposefromvelocity;
 #X obj 550 8 inlet;
 #X text 594 8 loadbang;
